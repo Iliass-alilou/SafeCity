@@ -19,8 +19,6 @@ namespace SafeCity2607last
 {
     // Test GitHub
     // Test2
-    //Test5555555555555555555555555555
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
