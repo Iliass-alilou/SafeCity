@@ -17,6 +17,7 @@ using SafeCity2607last.Models;
 
 namespace SafeCity2607last
 {
+    // Test GitHub
     public class Startup
     {
         public Startup(IConfiguration configuration)
