@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SafeCity2607last
 {
+    //Programe
     public class Program
     {
         public static void Main(string[] args)
