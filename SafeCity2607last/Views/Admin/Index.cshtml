@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@*<h1 class="bg-info text-white">All Users</h1>
+<a asp-action="Create" class="btn btn-secondary">Create a User</a>*@
+
+<table class="table table-sm table-bordered">
+    <tr>
+        @*<th>Nom</th><th>prenom</th><th>Email</th><th>ville</th><th>date de naissance</th><th>adresse</th><th>CIN</th><th>matricule</th><th>agence</th><th>manager</th><th>modifier</th><th>supprimer</th>*@
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Function</th>
+        <th>CIN</th>
+        <th>Adresse</th>
+        <th>City</th>
+        <th>PhoneNumber</th>
+        <th>PhoneNumber2</th>
+        <th>Photo</th>
+        <th>Datedebut</th>
+        <th>DatefiN</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>ConfPassword</th>
+        <th>Lati</th>
+        <th>Long</th>
+    </tr>
+    @foreach (ApplicationUser user in Model)
+    {
+<tr>
+
+    <td>@user.FirstName</td>
+    <td>@user.LastName</td>
+    @*<td>@user.Function</td>
+    <td>@user.CIN</td>
+    <td>@user.Adresse</td>
+    <td>@user.City</td>*@
+    <td>@user.PhoneNumber</td>
+    @*<td>@user.PhoneNumber2</td>
+    <td>@user.photo</td>
+    <td>@user.DateDebut</td>
+
+        <td>@user.DateFin</td>
+    <td>@user.Email</td>
+    <td>@user.PasswordHash</td>
+    <td>@user.Lati</td>
+    <td>@user.Long</td>*@
+
+    <td><a class="btn btn-sm" asp-action="Update" asp-route-id="@user.Id"><img src="~/images/edit.png" /></a></td>
+    <td>
+        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+            <button type="submit" class="btn btn-sm ">
+                <img src="~/images/poubelle.png" />
+            </button>
+        </form>
+    </td>
+
+</tr>
+    }
+</table>
+

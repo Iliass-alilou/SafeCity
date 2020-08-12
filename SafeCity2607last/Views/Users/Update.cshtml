@@ -1,0 +1,171 @@
+﻿
+@model ApplicationUser
+@{
+    ViewData["Title"] = "Update";
+    //var roles = (List<IdentityRole>)ViewData["roles"];
+}
+<section class="col-10">
+
+    <div class="card card-signin col-10">
+        <div class="card-body">
+            <h1 class="bg-info text-white">Update User</h1>
+            <a asp-action="Index" class="btn btn-secondary">Back</a>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form asp-action="Update" method="post">
+                @*<div class="form-group">
+                        <label asp-for="Id"></label>
+                        <input asp-for="Id" class="form-control" disabled />
+                    </div>*@
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input name="password" class="form-control" />
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+@*<div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+            {
+                <div class="form-group col-md-6">
+                    <label asp-for="Function"></label>
+                    <input asp-for="Function" class="form-control" />
+                    <select asp-for="Function" class="form-control" asp-items='new SelectList(roles,"Id","Name")'> </select>
+                    <span asp-validation-for="Function" class="text-danger"></span>
+
+                </div>
+            }
+        }
+        <div class="form-group col-md-6">
+            <label asp-for="CIN"></label>
+            <input asp-for="CIN" class="form-control" />
+            <span asp-validation-for="CIN" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Adresse"></label>
+            <input asp-for="Adresse" class="form-control" />
+            <span asp-validation-for="Adresse" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label asp-for="PhoneNumber2"></label>
+            <input asp-for="PhoneNumber2" class="form-control" />
+            <span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="photo"></label>
+            <input asp-for="photo" class="form-control" />
+            <span asp-validation-for="photo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+                <label asp-for="DateDebut"></label>
+                <input asp-for="DateDebut" class="form-control" />
+                <span asp-validation-for="DateDebut" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="DateFin"></label>
+                <input asp-for="DateFin" class="form-control" />
+                <span asp-validation-for="DateFin" class="text-danger"></span>
+            </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-4">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Lati"></label>
+            <input asp-for="Lati" class="form-control" />
+            <span asp-validation-for="Lati" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Long"></label>
+            <input asp-for="Long" class="form-control" />
+            <span asp-validation-for="Long" class="text-danger"></span>
+        </div>
+
+
+    </div>*@
+
+<button type="submit" class="btn btn-primary">Register</button>
+@*</form>*@
+                                </div>
