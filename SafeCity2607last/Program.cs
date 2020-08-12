@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-//tester1
+
 namespace SafeCity2607last
 {
     public class Program
@@ -23,4 +23,4 @@ namespace SafeCity2607last
     }
 }
 
-// Tester
+
