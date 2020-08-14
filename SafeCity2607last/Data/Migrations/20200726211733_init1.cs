@@ -42,7 +42,7 @@ namespace SafeCity2607last.Data.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "photo",
+                name: "ProfilePicture",
                 table: "AspNetUsers",
                 nullable: true);
         }
@@ -78,7 +78,7 @@ namespace SafeCity2607last.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "photo",
+                name: "ProfilePicture",
                 table: "AspNetUsers");
         }
     }

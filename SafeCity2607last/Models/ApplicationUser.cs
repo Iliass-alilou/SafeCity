@@ -10,10 +10,12 @@ namespace SafeCity2607last.Models
     {
         //public ApplicationUser(): base()
         //{
-                
+
         //}
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int UsernameChangeLimit { get; set; } = 10;
+        public byte[] ProfilePicture { get; set; }
         //public string Function { get; set; }
 
         //public string CIN { get; set; }

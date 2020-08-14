@@ -185,7 +185,7 @@ namespace SafeCity2607last.Data.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
-                    b.Property<string>("photo");
+                    b.Property<string>("ProfilePicture");
 
                     b.HasKey("Id");
 

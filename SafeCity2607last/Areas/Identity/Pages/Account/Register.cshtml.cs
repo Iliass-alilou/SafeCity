@@ -95,8 +95,8 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             //[Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [DataType(DataType.ImageUrl)]
-            [Display(Name = "photo")]
-            public string photo { get; set; }
+            [Display(Name = "ProfilePicture")]
+            public string ProfilePicture { get; set; }
 
 
             //[DataType(DataType.Date)]
