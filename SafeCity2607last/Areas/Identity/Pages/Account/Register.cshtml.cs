@@ -63,7 +63,6 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [Display(Name = "Function")]
             public string Function { get; set; }
 
@@ -95,8 +94,8 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             //[Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [DataType(DataType.ImageUrl)]
-            [Display(Name = "ProfilePicture")]
-            public string ProfilePicture { get; set; }
+            [Display(Name = "Profile Picture")]
+            public byte[] ProfilePicture { get; set; }
 
 
             //[DataType(DataType.Date)]
@@ -151,6 +150,7 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             ViewData["roles"] = _roleManager.Roles.ToList();
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -173,6 +173,8 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
                     Lati = Input.Lati,
                     Long = Input.Long,
                     Function = Input.Function,
+                    ProfilePicture = Input.ProfilePicture,
+
 
                     // il peut etre une modefication Ici pour definire la ProfilePicture
                     //ProfilePicture=Input.ProfilePicture,
