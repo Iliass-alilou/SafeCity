@@ -62,17 +62,17 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             [Display(Name = "LastName")]
             public string LastName { get; set; }
 
-            //[Required]
-            //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
-            //[Display(Name = "Function")]
+            [Required]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "Function")]
             public string Function { get; set; }
 
-            //[Required]
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [Display(Name = "CIN")]
             public string CIN { get; set; }
 
-            //[Required]
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [Display(Name = "Adresse")]
             public string Adresse { get; set; }
@@ -87,7 +87,7 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
             [Display(Name = "PhoneNumber")]
             public string PhoneNumber { get; set; }
 
-            //[Required]
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 10)]
             [Display(Name = "PhoneNumber2")]
             public string PhoneNumber2 { get; set; }
@@ -133,12 +133,12 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
 
             //[Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 10)]
-            [Display(Name = "Lati")]
+            [Display(Name = "Latitude")]
             public string Lati { get; set; }
 
             //[Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 10)]
-            [Display(Name = "Long")]
+            [Display(Name = "Longitude")]
             public string Long { get; set; }
         }
 
@@ -166,15 +166,20 @@ namespace SafeCity2607last.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    //Adresse = Input.Adresse,
-                    //CIN = Input.CIN,
-                    ////City = Input.City,
-                    //PhoneNumber2 = Input.PhoneNumber2,
+                    Adresse = Input.Adresse,
+                    CIN = Input.CIN,
+                    City = Input.City,
+                    PhoneNumber2 = Input.PhoneNumber2,
+                    Lati = Input.Lati,
+                    Long = Input.Long,
+                    Function = Input.Function,
+
+                    // il peut etre une modefication Ici pour definire la ProfilePicture
+                    //ProfilePicture=Input.ProfilePicture,
 
                     ////DateDebut = Input.DateDebut,
                     ////DateFin = Input.DateFin,
-                    //Lati = Input.Lati,
-                    //Long = Input.Long
+
 
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

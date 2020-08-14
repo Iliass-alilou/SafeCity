@@ -94,9 +94,12 @@ namespace SafeCity2607last.Controllers
                     public async Task<IActionResult> Update
             (string id,
             string email,
-            string password)
-        //    ,
-        //            string FirstName,
+            string password,
+            string FirstName,
+            string LastName,
+            string PhoneNumber)
+       
+        // string FirstName,
         //string LastName,
         //string Function,
 

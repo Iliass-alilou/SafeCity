@@ -16,6 +16,13 @@ namespace SafeCity2607last.Models
         public string LastName { get; set; }
         public int UsernameChangeLimit { get; set; } = 10;
         public byte[] ProfilePicture { get; set; }
+        public string Adresse { get; internal set; }
+        public string CIN { get; internal set; }
+        public string City { get; internal set; }
+        public string PhoneNumber2 { get; internal set; }
+        public string Lati { get; internal set; }
+        public string Long { get; internal set; }
+        public string Function { get; internal set; }
         //public string Function { get; set; }
 
         //public string CIN { get; set; }

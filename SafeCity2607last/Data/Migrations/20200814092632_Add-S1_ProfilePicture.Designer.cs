@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SafeCity2607last.Data;
 
 namespace SafeCity2607last.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200814092632_Add-S1_ProfilePicture")]
+    partial class AddS1_ProfilePicture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,12 +142,6 @@ namespace SafeCity2607last.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Adresse");
-
-                    b.Property<string>("CIN");
-
-                    b.Property<string>("City");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -156,17 +152,11 @@ namespace SafeCity2607last.Data.Migrations
 
                     b.Property<string>("FirstName");
 
-                    b.Property<string>("Function");
-
                     b.Property<string>("LastName");
-
-                    b.Property<string>("Lati");
 
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("Long");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -177,8 +167,6 @@ namespace SafeCity2607last.Data.Migrations
                     b.Property<string>("PasswordHash");
 
                     b.Property<string>("PhoneNumber");
-
-                    b.Property<string>("PhoneNumber2");
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
