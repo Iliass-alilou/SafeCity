@@ -91,70 +91,92 @@ namespace SafeCity2607last.Controllers
 
         [HttpPost]
        
-        public async Task<IActionResult> Update
-            (string id,
+        public async Task<IActionResult> Update(
+             string profilePicture,
+            string firstName,
+            string lastName,
             string email,
-            string password,
-            string ConfirmPassword,
-            string FirstName,
-            string LastName,
-            string PhoneNumber,
-            string City,
-            string Adresse,
-            string PhoneNumber2)
- 
-            //string Lati,
-            //string Long)
+            string city,
+            string adresse,
+            string cin,
+            string phoneNumber,
+            string phoneNumber2,
+            string function,
+            string id
+            )
             {
             ApplicationUser user = await userManager.FindByIdAsync(id);
             if (user != null) 
             {
+
+                //----------------------
+
+                if (!string.IsNullOrEmpty(firstName))
+                    user.FirstName = firstName;
+                else
+                    ModelState.AddModelError("", "First Name cannot be empty");
+
+
+                //----------------------
+
+                if (!string.IsNullOrEmpty(lastName))
+                    user.LastName = lastName;
+                else
+                    ModelState.AddModelError("", "Last Name cannot be empty");
+
+                //-------------------------
 
                 if (!string.IsNullOrEmpty(email))
                     user.Email = email;
                 else
                     ModelState.AddModelError("", "Email cannot be empty");
 
-                /* if (!string.IsNullOrEmpty(password))
-                     user.PasswordHash = passwordHasher.HashPassword(user, password);
-                 else
-                     ModelState.AddModelError("", "Password cannot be empty");*/
 
+                //-----------------------------
 
-                if (!string.IsNullOrEmpty(FirstName))
-                    user.FirstName = FirstName;
+                if (!string.IsNullOrEmpty(city))
+                    user.City = city;
                 else
-                    ModelState.AddModelError("", "First Name cannot be empty");
+                    ModelState.AddModelError("", "Email cannot be empty");
 
-                if (!string.IsNullOrEmpty(LastName))
-                    user.LastName = LastName;
+
+                //-----------------------------
+
+                if (!string.IsNullOrEmpty(adresse))
+                    user.Adresse = adresse;
                 else
-                    ModelState.AddModelError("", "Last Name cannot be empty");
+                    ModelState.AddModelError("", "Adresse cannot be empty");
 
+                //-----------------------------
 
-                if (!string.IsNullOrEmpty(PhoneNumber))
-                    user.LastName = PhoneNumber;
-                else
-                    ModelState.AddModelError("", "Phone Number1 cannot be empty");
-
-
-
-                if (!string.IsNullOrEmpty(City))
-                    user.LastName = City;
-                else
-                    ModelState.AddModelError("", "City cannot be empty");
-
-
-                if (!string.IsNullOrEmpty(Adresse))
-                    user.LastName = Adresse;
+                if (!string.IsNullOrEmpty(cin))
+                    user.CIN = cin;
                 else
                     ModelState.AddModelError("", "Adresse cannot be empty");
 
 
-                if (!string.IsNullOrEmpty(PhoneNumber2))
-                    user.LastName = PhoneNumber2;
+                //--------------------------------
+                if (!string.IsNullOrEmpty(phoneNumber))
+                    user.PhoneNumber = phoneNumber;
+                else
+                    ModelState.AddModelError("", "Phone Number1 cannot be empty");
+
+                //-------------------------------------------
+                if (!string.IsNullOrEmpty(phoneNumber2))
+                    user.PhoneNumber2 = phoneNumber2;
                 else
                     ModelState.AddModelError("", "Phone Number2 cannot be empty");
+
+
+                //---------------------------------------------
+                if (!string.IsNullOrEmpty(function))
+                    user.Function = function;
+                else
+                    ModelState.AddModelError("", "Function cannot be empty");
+
+
+
+                //---------------------------------------------------------------------------------
 
 
 
