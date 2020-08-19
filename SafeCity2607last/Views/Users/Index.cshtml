@@ -6,6 +6,9 @@
     @inject UserManager<ApplicationUser> UserManager*@
 
 @model IEnumerable<ApplicationUser>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
@@ -39,48 +42,58 @@
                 @*<th>PhoneNumber2</th>*@
                 @*<th>Photo</th>*@
                 @*<th>Datedebut</th>
-        <th>DatefiN</th>*@
+                    <th>DatefiN</th>*@
 
                 @*<th>Password</th>*@
                 @*<th>ConfPassword</th>*@
                 @*<th>Lati</th>
-        <th>Long</th>*@
+                    <th>Long</th>*@
                 @*<tr><th>Nom</th><th>prenom</th><th>Email</th>*@
                 @*<th>ville</th><th>date de naissance</th><th>adresse</th><th>CIN</th>
-        <th>matricule</th><th>agence</th><th>manager</th><th>modifier</th><th>supprimer</th>*@
+                    <th>matricule</th><th>agence</th><th>manager</th><th>modifier</th><th>supprimer</th>*@
             </tr>
             @foreach (var user in Model)
             {
-        <tr>
-            <td>@user.ProfilePicture</td>
-            <td>@user.FirstName</td>
-            <td>@user.LastName</td>
-            <td>@user.Email</td>
-            <td>@user.City</td>
-            <td>@user.Adresse</td>
-            <td>@user.CIN</td>
-            <td>@user.PhoneNumber</td>
-            <td>@user.PhoneNumber2</td>
-            <td>@user.Function</td>
-       
-            @*<td>@user.DateDebut</td>
+                <tr>
+                    <td>
+                        @if (SignInManager.IsSignedIn(User))
 
-              <td>@user.DateFin</td>*@
+                        {<li class="nav-item" style="align-self: center;">
+    @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null)
+    {
+        <img class="notification-count" src="~/img/notification.png" width="20" height="20" title="notification" , alt="notif" />
 
-          
+    }
+</li>}
+                    </td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.City</td>
+                    <td>@user.Adresse</td>
+                    <td>@user.CIN</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.PhoneNumber2</td>
+                    <td>@user.Function</td>
+
+                    @*<td>@user.DateDebut</td>
+
+                        <td>@user.DateFin</td>*@
 
 
-            @*// to update user' information tou should connect with his identity and go to profil*@
-            <td><a class="btn btn-sm" asp-action="Update" asp-route-id="@user.Id"><img src="~/img/edit.png" height="20" width="20" /></a></td>
-            <td>
-                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                    <button type="submit" class="btn btn-sm ">
-                        <img src="~/img/poubelle.png" height="20" width="20" />
-                    </button>
-                </form>
-            </td>
 
-        </tr>
+
+                    @*// to update user' information tou should connect with his identity and go to profil*@
+                    <td><a class="btn btn-sm" asp-action="Update" asp-route-id="@user.Id"><img src="~/img/edit.png" height="20" width="20" /></a></td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                            <button type="submit" class="btn btn-sm ">
+                                <img src="~/img/poubelle.png" height="20" width="20" />
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
             }
         </table>
 
