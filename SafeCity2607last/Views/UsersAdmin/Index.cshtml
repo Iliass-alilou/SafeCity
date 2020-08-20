@@ -1,0 +1,131 @@
+﻿
+@model IEnumerable<ApplicationUser>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*<section class="col-12 dropright">*@
+
+<div class="card card-signin col-10 ">
+    <div class="card-body">
+
+
+
+        <a class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Register">Create a new User</a>
+
+
+
+
+        <table class="table table-sm table-bordered">
+            <tr>
+                <th class="text-center">Profile Picture</th>
+                <th class="text-center">First Name</th>
+                <th class="text-center">Last Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">City</th>
+                <th class="text-center">Adresse</th>
+                <th class="text-center">CIN</th>
+                <th class="text-center">Phone Number</th>
+                <th class="text-center">Phone Number2</th>
+                <th class="text-center">Function</th>
+
+
+                @*<th>PhoneNumber2</th>*@
+                @*<th>Photo</th>*@
+                @*<th>Datedebut</th>
+                    <th>DatefiN</th>*@
+
+                @*<th>Password</th>*@
+                @*<th>ConfPassword</th>*@
+                @*<th>Lati</th>
+                    <th>Long</th>*@
+                @*<tr><th>Nom</th><th>prenom</th><th>Email</th>*@
+                @*<th>ville</th><th>date de naissance</th><th>adresse</th><th>CIN</th>
+                    <th>matricule</th><th>agence</th><th>manager</th><th>modifier</th><th>supprimer</th>*@
+            </tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null)
+                        {
+                            <img style="width:40px;height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.ProfilePicture))">
+                        }
+                    </td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.City</td>
+                    <td>@user.Adresse</td>
+                    <td>@user.CIN</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.PhoneNumber2</td>
+                    <td>@user.Function</td>
+
+                    @*<td>@user.DateDebut</td>
+
+                        <td>@user.DateFin</td>*@
+
+
+
+
+                    @*// to update user' information tou should connect with his identity and go to profil*@
+                    <td><a class="btn btn-sm" asp-action="Update" asp-route-id="@user.Id"><img src="~/img/edit.png" height="35" width="25" /></a></td>
+                    <td>
+                        @*<form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                <button type="submit" class="btn btn-sm "  onclick="return confirm('Are you sure you want to delete user : @user.Email')">
+                                    <img src="~/img/poubelle.png" height="20" width="20" />
+                                </button>
+                            </form>*@
+
+
+                        @*  <div class="card-footer">*@
+                        <form method="post" asp-action="Delete" asp-route-id="@user.Id">
+
+                            @*<span id="confirmDeleteSpan_@user.Id" style="display:none">
+                                <span>Are you sure you want to delete?</span>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <a href="#" class="btn btn-primary"
+                                onclick="confirmDelete('@user.Id', false)">No</a>
+                                </span>*@
+
+
+                            <span id="deleteSpan_@user.Id">
+                                <a href="#" class="btn btn-danger"
+                                   onclick="confirmDelete('@user.Id', true)">Delete</a>
+                            </span>
+
+
+                            <span id="confirmDeleteSpan_@user.Id" style="display:none">
+                                <span>Are you sure you want to delete?</span>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <a href="#" class="btn btn-primary"
+                                   onclick="confirmDelete('@user.Id', false)">No</a>
+                            </span>
+
+                        </form>
+
+
+                    </td>
+
+
+                </tr>
+
+
+
+            }
+        </table>
+
+
+    </div>
+
+</div>
+@section Scripts {
+
+    <script src="~/js/CustomScript.js"></script>
+}

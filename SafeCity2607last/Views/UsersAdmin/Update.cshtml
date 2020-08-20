@@ -1,0 +1,91 @@
+﻿
+@model ApplicationUser
+@{
+    ViewData["Title"] = "Update";
+    //var roles = (List<IdentityRole>)ViewData["roles"];
+}
+<section class="col-10">
+
+    <div class="card card-signin col-10">
+        <div class="card-body">
+
+            <h1 class="bg-info text-white">Update User</h1>
+
+
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <form asp-controller="Users" asp-action="Update" method="post" enctype="multipart/form-data">
+
+
+                @*<input hidden asp-for="Id" />*@
+
+                <input hidden asp-for="ProfilePicture" />
+
+
+
+                <div class="form-group">
+                    <label asp-for="FirstName">First Name</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name</label>
+                    <input asp-for="LastName" class="form-control" placeholder="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="City"></label>
+                    <input asp-for="City" class="form-control" placeholder="City" />
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="Adresse"></label>
+                    <input asp-for="Adresse" class="form-control" placeholder="Adresse" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CIN"></label>
+                    <input asp-for="CIN" class="form-control" placeholder="CIN" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber">Phone Number1</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber2">Phone Number2</label>
+                    <input asp-for="PhoneNumber2" class="form-control" placeholder="PhoneNumber2" />
+                </div>
+
+
+                <input hidden asp-for="Function" />
+
+
+                <button  type="submit" class="btn btn-primary" >Save</button>
+                <a asp-action="Index" class="btn btn-primary">Cancel</a>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
