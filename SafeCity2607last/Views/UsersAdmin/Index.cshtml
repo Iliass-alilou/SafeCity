@@ -1,10 +1,4 @@
-﻿@*@using Microsoft.AspNetCore.Identity
-    @inject SignInManager<IdentityUser> SignInManager
-    @inject UserManager<IdentityUser> UserManager*@
-@*@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>*@
-@*@inject SignInManager<ApplicationUser> SignInManager
-    @inject UserManager<ApplicationUser> UserManager*@
-
+﻿
 @model IEnumerable<ApplicationUser>
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
@@ -19,6 +13,8 @@
 
 <div class="card card-signin col-10 ">
     <div class="card-body">
+
+
 
         <a class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Register">Create a new User</a>
 

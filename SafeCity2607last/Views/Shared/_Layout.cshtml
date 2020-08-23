@@ -139,46 +139,52 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="linkmenu nav-link  active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Menu</a>
                             @if (User.IsInRole("SuperAdmin"))
-                             
-                                {
-                                    <div class="btn-group dropright">
-                                        <button type="button" class="btn btn-secondary">
-                                            <a class=" linkmenu" id="v-pills-settings-tab" data-toggle="pill" role="tab" aria-controls="v-pills-settings" aria-selected="false">Gestion des admins</a>
-                                        </button>
-                                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropright</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" asp-controller="Role" asp-action="index">Gerer des roles</a>
-                                            <a class="dropdown-item" asp-controller="Users" asp-action="index">Gerer des admins</a>
-                                        </div>
-                                    </div>
-                                }
-                            @*<a class=" linkmenu nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Admin</a>*@
-                                <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Admin</a>
-                                <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Controleur Qualité</a>
-                                <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">12R</a>
-                                <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">54V</a>
-                                <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Publication</a>
 
+                            {
                                 <div class="btn-group dropright">
                                     <button type="button" class="btn btn-secondary">
-                                        <a class=" linkmenu" id="v-pills-settings-tab" data-toggle="pill" role="tab" aria-controls="v-pills-settings" aria-selected="false">Message</a>
+                                        <a class=" linkmenu" id="v-pills-settings-tab" data-toggle="pill" role="tab" aria-controls="v-pills-settings" aria-selected="false">Gestion des admins</a>
                                     </button>
                                     <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropright</span>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" asp-controller="Message" asp-action="GetSendMessages">Message reçus</a>
-                                        <a class="dropdown-item" asp-controller="Message" asp-action="GetReceivedMessages">Message personnalisé</a>
-                                        <a class="dropdown-item" asp-controller="Message" asp-action="AddMessage">Message au public</a>
+                                        <a class="dropdown-item" asp-controller="Role" asp-action="index">Gerer des roles</a>
+                                        <a class="dropdown-item" asp-controller="Users" asp-action="index">Gerer des admins</a>
                                     </div>
                                 </div>
-                                <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Proposition</a>
-                                <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Statistique</a>
-                                @*<a class="linkmenu nav-link" id="v-pills-settings-tab" asp-controller="Leave" asp-action="index" role="tab" aria-controls="v-pills-settings" aria-selected="false">Gestion des congés</a>*@
+                            }
 
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="linkmenu nav-link" asp-controller="UsersAdmin" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Admin</a>
+                            }
+
+                            @*<a class=" linkmenu nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Admin</a>*@
+                            @*<a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Admin</a>*@
+                            <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Controleur Qualité</a>
+                            <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">12R</a>
+                            <a class="linkmenu nav-link" asp-controller="Users" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">54V</a>
+                            <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Publication</a>
+
+                            <div class="btn-group dropright">
+                                <button type="button" class="btn btn-secondary">
+                                    <a class=" linkmenu" id="v-pills-settings-tab" data-toggle="pill" role="tab" aria-controls="v-pills-settings" aria-selected="false">Message</a>
+                                </button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropright</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Message" asp-action="GetSendMessages">Message reçus</a>
+                                    <a class="dropdown-item" asp-controller="Message" asp-action="GetReceivedMessages">Message personnalisé</a>
+                                    <a class="dropdown-item" asp-controller="Message" asp-action="AddMessage">Message au public</a>
+                                </div>
                             </div>
+                            <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Proposition</a>
+                            <a class="linkmenu nav-link" asp-controller="Personnel" asp-action="index" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">Statistique</a>
+                            @*<a class="linkmenu nav-link" id="v-pills-settings-tab" asp-controller="Leave" asp-action="index" role="tab" aria-controls="v-pills-settings" aria-selected="false">Gestion des congés</a>*@
+
+                        </div>
                     </div>
                     @RenderBody()
                 </div>
